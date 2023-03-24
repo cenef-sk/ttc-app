@@ -1,0 +1,195 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://mini-games/one-correct/one-correct.gd" type="Script" id=1]
+[ext_resource path="res://navigation/in-game-menu/InGameMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/bgs/TTCBG.png" type="Texture" id=3]
+[ext_resource path="res://mini-games/explanation/explanation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mini-games/results/results.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://navigation/games/Paper.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/green_checkmark.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/red_cross.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="OneCorrect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 81.0
+margin_right = 880.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+text = "TEST"
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 147.0
+margin_right = 880.0
+margin_bottom = 187.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/separator = SubResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 191.0
+margin_right = 880.0
+margin_bottom = 891.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 790.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 700, 700 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -31.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+autowrap = true
+
+[node name="OK" type="TextureRect" parent="VBoxContainer/HBoxContainer/TextureRect"]
+visible = false
+anchor_left = 0.471429
+anchor_top = 0.471429
+anchor_right = 0.585714
+anchor_bottom = 0.585714
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Wrong" type="TextureRect" parent="VBoxContainer/HBoxContainer/TextureRect"]
+visible = false
+anchor_left = 0.471429
+anchor_top = 0.471429
+anchor_right = 0.585714
+anchor_bottom = 0.585714
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 895.0
+margin_right = 880.0
+margin_bottom = 935.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 939.0
+margin_right = 880.0
+margin_bottom = 1639.0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 90.0
+margin_right = 790.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 700, 700 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect2"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -31.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+autowrap = true
+
+[node name="OK" type="TextureRect" parent="VBoxContainer/HBoxContainer2/TextureRect2"]
+visible = false
+anchor_left = 0.471429
+anchor_top = 0.471429
+anchor_right = 0.585714
+anchor_bottom = 0.585714
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Wrong" type="TextureRect" parent="VBoxContainer/HBoxContainer2/TextureRect2"]
+visible = false
+anchor_left = 0.471429
+anchor_top = 0.471429
+anchor_right = 0.585714
+anchor_bottom = 0.585714
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="InGameMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="Explanation" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Results" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/TextureRect" to="." method="_on_TextureRect_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer2/TextureRect2" to="." method="_on_TextureRect2_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

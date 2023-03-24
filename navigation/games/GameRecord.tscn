@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/PatrickHand-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://navigation/games/GameRecord.gd" type="Script" id=3]
+[ext_resource path="res://navigation/games/Paper.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 441.75, 109.5 )
+
+[node name="GameRecord" type="Control"]
+anchor_right = 0.799074
+anchor_bottom = 0.130208
+mouse_filter = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 0.996524
+anchor_bottom = 1.0
+margin_bottom = -1.52588e-05
+rect_min_size = Vector2( 860, 250 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 46.0
+margin_right = -20.0
+margin_bottom = -43.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 16.0
+margin_right = 822.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 822, 0 )
+custom_colors/font_color = Color( 0.309804, 0.298039, 0.298039, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "game name game name game name game name"
+valign = 1
+clip_text = true
+max_lines_visible = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 82.0
+margin_right = 822.0
+margin_bottom = 144.0
+size_flags_stretch_ratio = 2.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 300, 0 )
+custom_colors/font_color = Color( 0.639216, 0.639216, 0.639216, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "owner org name owner org name"
+clip_text = true
+
+[node name="Difficulty" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 304.0
+margin_right = 822.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 0.012
+anchor_right = 1.0
+anchor_bottom = 1.012
+margin_left = 574.0
+margin_top = 127.0
+margin_right = -48.0001
+margin_bottom = -42.9995
+rect_min_size = Vector2( 241, 80 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "Stiahni hru"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 421.25, 83 )
+shape = SubResource( 2 )
+
+[connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]

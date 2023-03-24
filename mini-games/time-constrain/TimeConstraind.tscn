@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://mini-games/time-constrain/TimeConstraind.gd" type="Script" id=1]
+[ext_resource path="res://mini-games/time-constrain/Stopwatch.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.360784, 0.517647, 0.364706, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.717647, 0.717647, 0.717647, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="TimeConstrain" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.0364583
+rect_min_size = Vector2( 0, 70 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 20.0
+margin_right = -50.0
+margin_bottom = -20.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 20.0
+rounded = true
+percent_visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Stopwatch" parent="." instance=ExtResource( 2 )]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

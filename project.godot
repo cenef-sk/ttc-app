@@ -1,0 +1,58 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+}
+
+[application]
+
+config/name="Touch-the-culture"
+run/main_scene="res://navigation/games/games2.tscn"
+boot_splash/image="res://assets/bgs/LogoTTCBG.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
+config/icon="res://assets/bgs/TTC_logo.png"
+
+[autoload]
+
+Config="*res://utils/Config.gd"
+Games="*res://utils/Games.gd"
+GameManagement="*res://utils/GameManagement.gd"
+GameData="*res://utils/GameData.gd"
+SceneTransition="*res://navigation/transition/transition.tscn"
+Utils="*res://utils/Utils.gd"
+
+[display]
+
+window/size/width=1080
+window/size/height=1920
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[locale]
+
+fallback="sk"
+translations=PoolStringArray( "res://assets/translations/translation.cs.translation", "res://assets/translations/translation.en.translation", "res://assets/translations/translation.pl.translation", "res://assets/translations/translation.sk.translation" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

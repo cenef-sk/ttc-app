@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/bgs/LogosTTCBG.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://navigation/info/info.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 49
+outline_color = Color( 0.054902, 0.352941, 0.690196, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Info" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+anchor_left = 0.087963
+anchor_top = 0.247396
+anchor_right = 0.90463
+anchor_bottom = 0.744271
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 1 )
+text = "INFO"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LinkRichText" type="RichTextLabel" parent="TextureRect"]
+anchor_left = 0.087963
+anchor_top = 0.705208
+anchor_right = 0.90463
+anchor_bottom = 0.744271
+custom_colors/default_color = Color( 0.0666667, 0.0980392, 0.796078, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = " 			www.touchtheculture.eu"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_TextureRect_gui_input"]
+[connection signal="gui_input" from="TextureRect/LinkRichText" to="." method="_on_LinkRichText_gui_input"]

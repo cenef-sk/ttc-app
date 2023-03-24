@@ -1,0 +1,19 @@
+keys,sk,en,cs,pl
+SETTINGS,Nastavenia,Settings,Nastavení,Ustawienia
+BACK,Späť,Back,Zpět,Z powrotem
+LANGUAGE,Jazyk rozhrania,Interface language,Jazyk rozhraní,Język interfejsu
+ANALYTICS,Neposielaj analytické dáta na server,Do not send analytical data to the server,Neposílej analytická data na server,Nie wysyłaj danych analitycznych na serwer
+PLACEHOLDER,vlož kód hry,enter the game code,vlož kód hry,wpisz kod gry
+DOWN-PLAY,Stiahni a hraj hru,Download and play the game,Stáhni a hraj hru,Pobierz i zagraj w grę
+EXIT,Ukončiť hru,End the game,Ukončit hru,Zakończ grę
+BLOCK,Blokovať nevhodný obsah,Block inappropriate content,Blokovat nevhodný obsah,Blokuj nieodpowiednie treści
+REPORT,Reportovať nevhodný obsah,Report inappropriate content,Reportovat nevhodný obsah,Zgłoś nieodpowiednie treści
+BLOCK-USER,Zablokovať obsah používateľa,Block user content,Zablokovat obsah uživatele,Blokuj treści użytkowników
+BLOCK-GAME,Zablokovať túto hru,Block this game,Zablokovat tuto hru,Zablokuj tę grę
+REPORT-REASON,"Popíšte dôvod náhlásenia (porušenie licenčných podmienok, nevhodný obsah, ...)","Describe the reason for the report (violation of license terms, inappropriate content, ...)","Popište důvod náhlášení (porušení licenčních podmínek, nevhodný obsah, ...)","Opisz przyczynę zgłoszenia (naruszenie warunków licencji, nieodpowiednie treści, ...)"
+SEND-REPORT,Nahlásenie administátorovi,Reporting to the administrator,Nahlášení administátorovi,Raportowanie do administratora
+REPORT-SUCCESS,Nahlásenie nevhodného obsahu bolo úspešne.,Report of inappropriate content was successful.,Nahlášení nevhodného obsahu bylo úspěšně.,Zgłoszenie nieodpowiednich treści powiodło się.
+REPORT-ERROR,"Pri nahlasovaní obsahu nastala chyba, skúste to neskôr.","There was an error reporting content, please try again later.","Při nahlašování obsahu nastala chyba, zkuste to později.","Wystąpił błąd podczas zgłaszania treści, spróbuj ponownie później."
+,,,,
+RESET-BLOCKED,Zruš všetky blokovania obsahu,Unblock all content,Zruš všechna blokování obsahu,Odblokuj całą zawartość
+CONCLUSION,Zhodnotenie:,Conclusion:,Závěr:,Wniosek:

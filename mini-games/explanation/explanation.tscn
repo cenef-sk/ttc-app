@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/bgs/TTCBG.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://mini-games/explanation/explanation.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="Explanation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.286275, 0.286275, 0.286275, 0.309804 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 96.0
+margin_top = 96.0
+margin_right = -80.0
+margin_bottom = -117.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 85.0
+margin_right = -53.0
+margin_bottom = -75.0
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+margin_top = 568.0
+margin_right = 787.0
+margin_bottom = 668.0
+custom_fonts/font = SubResource( 1 )
+text = "Vysvetlenie:"
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/VBoxContainer"]
+margin_top = 672.0
+margin_right = 787.0
+margin_bottom = 772.0
+mouse_filter = 2
+custom_constants/separation = 100
+
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
+margin_top = 776.0
+margin_right = 787.0
+margin_bottom = 979.0
+custom_fonts/font = SubResource( 1 )
+text = "fasd fasd fas df asd fasd f asdfasdf"
+valign = 1
+autowrap = true
+
+[connection signal="gui_input" from="." to="." method="_on_Explanation_gui_input"]

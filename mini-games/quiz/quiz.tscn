@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/bgs/TTCBG.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://mini-games/quiz/answer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini-games/results/results.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mini-games/quiz/quiz.gd" type="Script" id=5]
+[ext_resource path="res://mini-games/explanation/explanation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://navigation/in-game-menu/InGameMenu.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
+
+[node name="Quiz" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.0592593
+anchor_top = 0.075
+anchor_right = 0.941667
+anchor_bottom = 0.907812
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 145.0
+margin_right = 953.0
+margin_bottom = 232.0
+custom_fonts/font = SubResource( 1 )
+text = "question"
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_top = 236.0
+margin_right = 953.0
+margin_bottom = 636.0
+rect_min_size = Vector2( 0, 400 )
+expand = true
+stretch_mode = 6
+
+[node name="Answer" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 640.0
+margin_right = 953.0
+margin_bottom = 840.0
+
+[node name="Answer2" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 844.0
+margin_right = 953.0
+margin_bottom = 1044.0
+
+[node name="Answer3" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1048.0
+margin_right = 953.0
+margin_bottom = 1248.0
+
+[node name="Answer4" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1252.0
+margin_right = 953.0
+margin_bottom = 1452.0
+
+[node name="TimerNextQuestion" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerExplanation" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="InGameMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="Explanation" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Results" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="timeout" from="TimerNextQuestion" to="." method="_on_TimerNextQuestion_timeout"]
+[connection signal="timeout" from="TimerExplanation" to="." method="_on_TimerExplanation_timeout"]

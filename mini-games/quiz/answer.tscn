@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://navigation/games/Paper.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://mini-games/quiz/answer.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="Answer" type="Control"]
+anchor_right = 0.826852
+anchor_bottom = 0.123958
+margin_bottom = -38.0
+rect_min_size = Vector2( 0, 200 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.0233853
+anchor_right = 0.969933
+anchor_bottom = 0.911765
+margin_right = -0.000244141
+margin_bottom = 17.6471
+rect_min_size = Vector2( 0, 200 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Test sfdasdffas fasdfsad fasdfsdf"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="gui_input" from="." to="." method="_on_Answer_gui_input"]
