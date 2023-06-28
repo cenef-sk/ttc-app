@@ -35,6 +35,16 @@ func _ready():
 	for item in items:
 		item.connect("timeline_change", self, "on_Timeline_Change")
 
+	var activity = gameData.activity
+	if (activity.has("config") and activity.config.has("time")):	
+		var time = activity.config.time
+		if int(time) > 0:
+			print(time)
+			$VBoxContainer/TimeConstrain.setTimer(int(time))
+			$VBoxContainer/TimeConstrain.show()
+			$VBoxContainer/TimeConstrain.start()
+
+
 func ordered(svs):
 	for index in svs.size():
 		if svs[index].index != index:
@@ -62,6 +72,7 @@ func getTexture(asset_id, crop):
 func on_Timeline_Change():
 	gameData.pair_flip()
 	if (sv1.checkOrder() and sv2.checkOrder() and sv3.checkOrder() and sv4.checkOrder() and sv5.checkOrder()):
+		$VBoxContainer/TimeConstrain.stop()
 		var explanation = gameData.activity.content.explanation
 		if explanation:
 			$Explanation.set_explanation(explanation)
@@ -75,6 +86,17 @@ func on_Timeline_Change():
 		print("NOT YET.")
 
 func create_results():
+	match Config.lng:
+		"sk":
+			return create_results_sk()
+		"en":
+			return create_results_en()
+		"cs":
+			return create_results_cs()
+		"pl":
+			return create_results_pl()
+
+func create_results_sk():
 	var res = ""
 	var total = gameData.pair_flips
 	res += "Úlohu si úspešne splnil."
@@ -85,6 +107,48 @@ func create_results():
 		if gameData.activity.config.outPass:
 			res += "\n"
 			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_en():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "You have successfully completed the task."
+	res += "\n"
+	res += "Total number of moves: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "You have received a password: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_cs():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "Úlohu si úspěšně splnil."
+	res += "\n"
+	res += "Celkový počet přesunů: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_pl():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "Pomyślnie wykonałeś zadanie."
+	res += "\n"
+	res += "Łączna liczba przelewów: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Otrzymałeś hasło: " + gameData.activity.config.outPass
 			res += "\n"
 	return res
 

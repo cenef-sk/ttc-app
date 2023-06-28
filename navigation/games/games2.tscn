@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/bgs/TTCBG.png" type="Texture" id=1]
-[ext_resource path="res://assets/bgs/settings2.png" type="Texture" id=2]
-[ext_resource path="res://assets/bgs/victories.png" type="Texture" id=3]
+[ext_resource path="res://assets/TTC_settings_button.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/TTC_about_button.png" type="Texture" id=5]
 [ext_resource path="res://navigation/games/games2.gd" type="Script" id=6]
 [ext_resource path="res://navigation/games/Paper.png" type="Texture" id=7]
 
@@ -29,41 +29,28 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Settings" type="TextureRect" parent="Bg"]
-anchor_left = 0.56523
-anchor_top = 0.0434624
-anchor_right = 0.802267
-anchor_bottom = 0.176795
-rect_rotation = -3.0
+anchor_left = 0.514815
+anchor_top = 0.040625
+anchor_right = 0.909259
+anchor_bottom = 0.163021
+margin_bottom = 1.52588e-05
 rect_pivot_offset = Vector2( 128, 128 )
 texture = ExtResource( 2 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Victories" type="TextureRect" parent="Bg"]
-visible = false
-anchor_left = 0.0564815
-anchor_top = 0.0359375
-anchor_right = 0.293519
-anchor_bottom = 0.169271
-rect_rotation = -3.0
-rect_pivot_offset = Vector2( 128, 128 )
-texture = ExtResource( 3 )
-expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Info" type="TextureRect" parent="Bg"]
-anchor_left = 0.244859
-anchor_top = 0.0392957
-anchor_right = 0.481896
-anchor_bottom = 0.172629
-rect_rotation = 9.0
+anchor_left = 0.115741
+anchor_top = 0.0390625
+anchor_right = 0.510185
+anchor_bottom = 0.163021
 rect_pivot_offset = Vector2( 128, 128 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }

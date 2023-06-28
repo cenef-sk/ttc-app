@@ -20,13 +20,20 @@ func _ready():
 	gameMng.games_download()
 #	print(OS.get_unique_id ())
 	if !gameData.is_test_mode():
+		print("OS")
 		print(OS.get_cmdline_args().size())
 		print(get_parameter("game_id"))
 		var game_id = get_parameter("game_id")
 		var admin = get_parameter("admin")
+		if admin:
+			gameData.set_admin_mode()
+			print("ADMIN MODE")
+			print(admin)
+			
 		if game_id:
+			print("GAME ID")
 			print(game_id)
-			gameData._id(game_id)
+			gameData.set_cur_game_id(game_id)
 			gameData.set_test_mode()
 			SceneTransition.change_scene("res://navigation/download/download.tscn")
 

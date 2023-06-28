@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://navigation/in-game-menu/InGameMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mini-games/time-constrain/TimeConstraind.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini-games/timeline/SlotWrapper.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/fonts/Signika-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/bgs/TTCBG.png" type="Texture" id=7]
@@ -31,11 +32,18 @@ margin_top = 70.0
 margin_right = -19.0
 margin_bottom = -64.0
 
+[node name="TimeConstrain" parent="VBoxContainer" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1039.0
+margin_bottom = 70.0
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 1039.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
-text = "Usporiadaj podľa poradia"
+text = "SORT"
 align = 1
 autowrap = true
 

@@ -55,7 +55,7 @@ margin_bottom = 78.0
 rect_min_size = Vector2( 822, 0 )
 custom_colors/font_color = Color( 0.309804, 0.298039, 0.298039, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "game name game name game name game name"
+text = "no name"
 valign = 1
 clip_text = true
 max_lines_visible = 1
@@ -72,7 +72,7 @@ margin_bottom = 62.0
 rect_min_size = Vector2( 300, 0 )
 custom_colors/font_color = Color( 0.639216, 0.639216, 0.639216, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "owner org name owner org name"
+text = "no organization"
 clip_text = true
 
 [node name="Difficulty" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]

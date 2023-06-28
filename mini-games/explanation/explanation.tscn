@@ -39,26 +39,26 @@ margin_bottom = -75.0
 alignment = 1
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
-margin_top = 568.0
+margin_top = 619.0
 margin_right = 787.0
-margin_bottom = 668.0
+margin_bottom = 719.0
 custom_fonts/font = SubResource( 1 )
-text = "Vysvetlenie:"
+text = "EXPLANATION"
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect/VBoxContainer"]
-margin_top = 672.0
+margin_top = 723.0
 margin_right = 787.0
-margin_bottom = 772.0
+margin_bottom = 823.0
 mouse_filter = 2
 custom_constants/separation = 100
 
 [node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
-margin_top = 776.0
+margin_top = 827.0
 margin_right = 787.0
-margin_bottom = 979.0
+margin_bottom = 927.0
 custom_fonts/font = SubResource( 1 )
-text = "fasd fasd fas df asd fasd f asdfasdf"
+text = "no explanation"
 valign = 1
 autowrap = true
 

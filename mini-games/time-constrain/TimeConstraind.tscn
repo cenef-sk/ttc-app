@@ -36,7 +36,6 @@ margin_bottom = -20.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 20.0
-rounded = true
 percent_visible = false
 
 [node name="Timer" type="Timer" parent="."]

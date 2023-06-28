@@ -14,6 +14,8 @@ func _ready():
 	var acts = GameData.game.activities
 	for c in acts.size():
 		var code = "?"
+		if !(acts[c].has("config") && acts[c].config.has("outPass")):
+			code = "-"
 		if (GameData.finished_activities.count(c)):
 			if (acts[c].has("config") && acts[c].config.has("outPass")):
 				code = acts[c].config.outPass
@@ -27,7 +29,7 @@ func receivedCodesText():
 		"sk":
 			return "Získané kódy:"
 		"en":
-			return "Otrzymane kody:"
+			return "Received codes:"
 		"cs":
 			return "Získané kódy:"
 		"pl":

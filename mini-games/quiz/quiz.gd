@@ -8,7 +8,7 @@ onready var utils = get_node("/root/Utils")
 var explanation = null
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
 	var question = gameData.next_question()
 	if (question):
 		var a1 = $VBoxContainer/Answer
@@ -62,7 +62,19 @@ func _on_TimerNextQuestion_timeout():
 		$Results.connect("results_closed", self, "_on_Results_Closed")
 		$Results.visible = true
 
+
 func create_results():
+	match Config.lng:
+		"sk":
+			return create_results_sk()
+		"en":
+			return create_results_en()
+		"cs":
+			return create_results_cs()
+		"pl":
+			return create_results_pl()
+
+func create_results_sk():
 	var res = ""
 	var total = gameData.quiz_answers.size()
 	var correct = gameData.quiz_answers.count(true)
@@ -76,6 +88,56 @@ func create_results():
 			res += "Získal si heslo: " + gameData.activity.config.outPass
 			res += "\n"
 	return res
+
+
+func create_results_en():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	var correct = gameData.quiz_answers.count(true)
+	res += "Answered questions: " + String(total)
+	res += "\n"
+	res += "Correct answers: " + String(correct)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "You have received a password: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+
+func create_results_cs():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	var correct = gameData.quiz_answers.count(true)
+	res += "Zodpovězených otázek: " + String(total)
+	res += "\n"
+	res += "Správných odpovědí: " + String(correct)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+
+func create_results_pl():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	var correct = gameData.quiz_answers.count(true)
+	res += "Odpowiedzi na pytania: " + String(total)
+	res += "\n"
+	res += "Poprawne odpowiedzi: " + String(correct)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Otrzymałeś hasło: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+
 
 func setImage(asset_id):
 	if asset_id:

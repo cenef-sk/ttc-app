@@ -39,7 +39,7 @@ margin_top = 61.0
 margin_right = 891.0
 margin_bottom = 161.0
 custom_fonts/font = SubResource( 3 )
-text = "Hra sa sťahuje ..."
+text = "DOWNLOADING"
 align = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="TextureRect/VBoxContainer"]

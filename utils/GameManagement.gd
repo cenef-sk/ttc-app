@@ -207,19 +207,28 @@ func loadConfig ():
 	var dir = open_games_dir()
 	var games_dir = dir.get_current_dir()
 	var file = File.new()
-	file.open(games_dir + "/" + CONFIG_FILE_NAME, File.READ)
-	var config_data = file.get_var()
-	file.close()
-	return config_data
+	var path = games_dir + "/" + CONFIG_FILE_NAME
+	if file.file_exists(path):
+		file.open(path, File.READ)
+		var config_data = file.get_var()
+		file.close()
+		return config_data
+	else:
+		return null
+		
 
 func loadGame (game_id):
 	var dir = open_game_dir(game_id)
 	var game_dir = dir.get_current_dir()
 	var file = File.new()
-	file.open(game_dir + "/" + GAME_FILE_NAME, File.READ)
-	var game_data = file.get_var()
-	file.close()
-	return game_data
+	var path = game_dir + "/" + GAME_FILE_NAME
+	if file.file_exists(path):
+		file.open(path, File.READ)
+		var game_data = file.get_var()
+		file.close()
+		return game_data
+	else:
+		return null
 
 func loadGames ():
 	var dir = open_games_dir()
@@ -311,7 +320,7 @@ func http_game_download(id):
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.connect("request_completed", self, "http_game_download_completed")
-	if !gameData.is_test_mode():
+	if (!gameData.is_test_mode()) or (gameData.is_test_mode() and gameData.is_admin_mode()):
 		var error = http_request.request(config.API + "/games/" + id + "/download")
 		if error != OK:
 			push_error("An error occurred in the HTTP request.")

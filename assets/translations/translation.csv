@@ -17,3 +17,13 @@ REPORT-ERROR,"Pri nahlasovaní obsahu nastala chyba, skúste to neskôr.","There
 ,,,,
 RESET-BLOCKED,Zruš všetky blokovania obsahu,Unblock all content,Zruš všechna blokování obsahu,Odblokuj całą zawartość
 CONCLUSION,Zhodnotenie:,Conclusion:,Závěr:,Wniosek:
+,,,,
+INPUT-PASS,Pre vstup do aktivity zadajte heslo,Enter a password to enter the activity,Pro vstup do aktivity zadejte heslo,"Wprowadź hasło, aby wejść do działania"
+SEND,Odoslať,Submit,Odeslat,Wysyłać
+HELP,Nápoveda:,Hint:,Nápověda:,Wskazówka:
+DOWNLOADING,Hra sa sťahuje ...,The game is downloading...,Hra se stahuje ...,Trwa pobieranie gry...
+INCORRECT,Nesprávne heslo,Invalid Password,Nesprávné heslo,Nieprawidłowe hasło
+,,,,
+EXPLANATION,Vysvetlenie:,Explanation:,Vysvětlení:,Wyjaśnienie:
+PAIRS,Nájdi páry,Find the pairs,Najdi páry,Znajdź pary
+SORT,Usporiadaj podľa poradia,Arrange in order,Uspořádej podle pořadí,Ułóż w kolejności

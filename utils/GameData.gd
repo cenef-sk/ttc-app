@@ -6,6 +6,7 @@ var game_code = null
 var game_id = null
 var game = null
 var test_mode = false
+var admin_mode = false
 var activity = null
 var activity_index = null
 var finished_activities = []
@@ -92,10 +93,14 @@ func activty_finished():
 	
 func set_test_mode():
 	test_mode = true
+func set_admin_mode():
+	admin_mode = true
 	
 func is_test_mode():
 	return test_mode
-	
+func is_admin_mode():
+	return admin_mode
+		
 #QUESTION FUNCTIONS
 func next_question():
 	if (activity && activity.content && activity.content.questions && activity.content.questions.size()):

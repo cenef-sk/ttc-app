@@ -29,6 +29,17 @@ func setImage(asset_id):
 			$VBoxContainer/TextureRect.texture = t
 
 func create_results():
+	match Config.lng:
+		"sk":
+			return create_results_sk()
+		"en":
+			return create_results_en()
+		"cs":
+			return create_results_cs()
+		"pl":
+			return create_results_pl()
+
+func create_results_sk():
 	var res = ""
 	var total = gameData.quiz_answers.size()
 	res += "Ďakujeme za odpovede."
@@ -37,6 +48,42 @@ func create_results():
 		if gameData.activity.config.outPass:
 			res += "\n"
 			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_en():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	res += "Thanks for the answers."
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "You have received a password: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_cs():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	res += "Děkujeme za odpovědi."
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_pl():
+	var res = ""
+	var total = gameData.quiz_answers.size()
+	res += "Dzięki za odpowiedzi."
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Otrzymałeś hasło: " + gameData.activity.config.outPass
 			res += "\n"
 	return res
 

@@ -51,11 +51,11 @@ margin_bottom = -75.0
 alignment = 1
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
-margin_top = 276.0
+margin_top = 379.0
 margin_right = 787.0
 margin_bottom = 479.0
 custom_fonts/font = SubResource( 1 )
-text = "Pre vstup do aktivity zadajte heslo"
+text = "INPUT-PASS"
 valign = 1
 autowrap = true
 
@@ -79,7 +79,7 @@ margin_right = 787.0
 margin_bottom = 699.0
 custom_colors/font_color = Color( 0.631373, 0.160784, 0.160784, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Nesprávne heslo"
+text = "INCORRECT"
 align = 1
 valign = 1
 autowrap = true
@@ -89,7 +89,7 @@ margin_top = 676.0
 margin_right = 787.0
 margin_bottom = 751.0
 custom_fonts/font = SubResource( 3 )
-text = "Odoslať"
+text = "SEND"
 
 [node name="HSeparator2" type="HSeparator" parent="TextureRect/VBoxContainer"]
 margin_top = 755.0
@@ -103,7 +103,7 @@ margin_top = 859.0
 margin_right = 787.0
 margin_bottom = 959.0
 custom_fonts/font = SubResource( 1 )
-text = "Nápoveda:"
+text = "HELP"
 valign = 1
 autowrap = true
 
@@ -117,9 +117,9 @@ custom_constants/separation = 100
 [node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
 margin_top = 1067.0
 margin_right = 787.0
-margin_bottom = 1270.0
+margin_bottom = 1167.0
 custom_fonts/font = SubResource( 1 )
-text = "fasd fasd fas df asd fasd f asdfasdf"
+text = "-"
 valign = 1
 autowrap = true
 

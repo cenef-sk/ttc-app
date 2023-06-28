@@ -81,6 +81,17 @@ func _on_Poi_Found():
 		_on_Explanation_Closed()
 
 func create_results():
+	match Config.lng:
+		"sk":
+			return create_results_sk()
+		"en":
+			return create_results_en()
+		"cs":
+			return create_results_cs()
+		"pl":
+			return create_results_pl()
+
+func create_results_sk():
 	var res = ""
 	var total = gameData.found_pois.size()
 	res += "Úlohu si úspešne splnil."
@@ -93,6 +104,49 @@ func create_results():
 			res += "Získal si heslo: " + gameData.activity.config.outPass
 			res += "\n"
 	return res
+
+func create_results_en():
+	var res = ""
+	var total = gameData.found_pois.size()
+	res += "You have successfully completed the task."
+	res += "\n"
+	res += "Points found: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "You have received a password: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_cs():
+	var res = ""
+	var total = gameData.found_pois.size()
+	res += "Úlohu si úspěšně splnil."
+	res += "\n"
+	res += "Nalezených bodů: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_pl():
+	var res = ""
+	var total = gameData.found_pois.size()
+	res += "Pomyślnie wykonałeś zadanie."
+	res += "\n"
+	res += "Znalezione punkty: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Otrzymałeś hasło: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
 
 func _on_Results_Closed():
 	gameData.activty_finished()

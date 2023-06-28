@@ -25,6 +25,13 @@ func _ready():
 # 	TODO time constrain
 #	tween.interpolate_method(progressbar.get("custom_styles/fg"), "set_bg_color", Color("1a6592"), Color("fc6161"), 10, Tween.TRANS_CIRC, Tween.EASE_IN)
 #	tween.start()
+	if (activity.has("config") and activity.config.has("time")):	
+		var time = activity.config.time
+		if int(time) > 0:
+			print(time)
+			$VBoxContainer/TimeConstrain.setTimer(int(time))
+			$VBoxContainer/TimeConstrain.show()
+			$VBoxContainer/TimeConstrain.start()
 
 	var pairs = activity.content.pairs
 #	var path = "user://games/" + game._id + "/assets/" + pairs[0].item1.img
@@ -65,11 +72,23 @@ func _on_Results_Closed():
 func _on_Pair_Match():
 	num_matches = num_matches + 1
 	if num_matches == 6:
+		$VBoxContainer/TimeConstrain.stop()
 		$Results.set_results(create_results())
 		$Results.connect("results_closed", self, "_on_Results_Closed")
 		$Results.visible = true
 
 func create_results():
+	match Config.lng:
+		"sk":
+			return create_results_sk()
+		"en":
+			return create_results_en()
+		"cs":
+			return create_results_cs()
+		"pl":
+			return create_results_pl()
+
+func create_results_sk():
 	var res = ""
 	var total = gameData.pair_flips
 	res += "Našiel si všetky páry."
@@ -82,6 +101,48 @@ func create_results():
 			res += "Získal si heslo: " + gameData.activity.config.outPass
 			res += "\n"
 	return res
+
+func create_results_en():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "You found all the pairs."
+	res += "\n"
+	res += "Total number of card spins: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "You have received a password: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_cs():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "Našel jsi všechny páry."
+	res += "\n"
+	res += "Celkový počet otočení kartiček: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Získal si heslo: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
+
+func create_results_pl():
+	var res = ""
+	var total = gameData.pair_flips
+	res += "Znalazłeś wszystkie pary."
+	res += "\n"
+	res += "Całkowita liczba obrotów kartami: " + String(total)
+	res += "\n"
+	if gameData.activity.config && gameData.activity.config.has("outPass"):
+		if gameData.activity.config.outPass:
+			res += "\n"
+			res += "Otrzymałeś hasło: " + gameData.activity.config.outPass
+			res += "\n"
+	return res
 		
 func _on_Card_Flipped(id):
 	print(id)
@@ -92,13 +153,6 @@ func _on_Card_Flipped(id):
 		emit_signal("allow_flipping", false)
 		$UnflipTimer.start()
 			
-
-func _on_Timer_timeout():
-	get_node("VBoxContainer/ProgressBar").value -= 1
-#	print(get_node("VBoxContainer/ProgressBar").value)
-	progressbar.update()
-	pass # Replace with function body.
-
 
 func _on_TextureRect_gui_input(event):
 	if (event is InputEventMouseButton && event.pressed):
